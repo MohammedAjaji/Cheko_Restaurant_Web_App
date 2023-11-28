@@ -42,4 +42,16 @@ public class MenuController {
         List<String> categories = menuService.getAllCategories();
         return ResponseEntity.status(200).body(categories);
     }
+
+    @GetMapping("/category/{category}")
+    public ResponseEntity getAllByCategory(@PathVariable String category){
+//        List<Menu> menus = menuService.getAllByCategory(category);
+        return ResponseEntity.status(200).body(menuService.getAllByCategory(category));
+    }
+
+    @GetMapping("/category-count")
+    public ResponseEntity countMenuItemsByCategory(){
+        return ResponseEntity.status(200).body(menuService.countMenuItemsByCategory());
+    }
+
 }

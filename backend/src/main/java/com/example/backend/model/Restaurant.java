@@ -1,7 +1,5 @@
 package com.example.backend.model;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,22 +13,20 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Menu {
+public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String description;
-    private Double price;
-    private String image;
-    private Integer calorie;
-    private String category;
-    private Double lat;
+    private Double rating;
+    private Long rating_count;
+    private String url;
+    private Boolean hours24;
     private Double lng;
+    private Double lat;
 
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "restaurant_id",referencedColumnName = "id")
-    private Restaurant restaurant;
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.DETACH)
+    @PrimaryKeyJoinColumn
+    private Set<Menu> menuSet;
 }

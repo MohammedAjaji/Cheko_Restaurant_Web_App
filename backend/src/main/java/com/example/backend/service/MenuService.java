@@ -2,17 +2,22 @@ package com.example.backend.service;
 
 import com.example.backend.middleware.ApiException;
 import com.example.backend.model.Menu;
+import com.example.backend.model.Restaurant;
 import com.example.backend.repository.MenuRepository;
+import com.example.backend.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
 public class MenuService {
 
     private final MenuRepository menuRepository;
+    private final RestaurantRepository restaurantRepository;
 
     public List<Menu> getAllMenu(){
         return menuRepository.findAll();
@@ -37,4 +42,15 @@ public class MenuService {
     public List<String> getAllCategories() {
         return menuRepository.findDistinctCategory();
     }
+
+    //Todo findAllByCategory
+    public List<Menu> getAllByCategory(String category){
+        return menuRepository.findAllByCategory(category);
+    }
+
+    public List<Map<String, Long>>  countMenuItemsByCategory(){
+        return menuRepository.countMenuItemsByCategory();
+    }
+
+
 }

@@ -1,0 +1,262 @@
+[
+  {
+    "id": 0,
+    "name": "Cacti Cafe",
+    "rating": 4.2,
+    "rating_count": 2212,
+    "url": "https://www.google.com/maps/place/Cacti+Cafe/data=!4m7!3m6!1s0x3e2efde0d2059f1d:0xfca400b51ca140cc!8m2!3d24.8339855!4d46.7356133!16s%2Fg%2F11mwzvn0zx!19sChIJHZ8F0uD9Lj4RzEChHLUApPw?authuser=0&hl=en&rclk=1",
+    "hours_24": "True",
+    "lng": 46.7356133,
+    "lat": 24.8339855
+  },
+  {
+    "id": 1,
+    "name": "فازا قهوة مختصة",
+    "rating": 4.3,
+    "rating_count": 889,
+    "url": "https://www.google.com/maps/place/%D9%81%D8%A7%D8%B2%D8%A7+%D9%82%D9%87%D9%88%D8%A9+%D9%85%D8%AE%D8%AA%D8%B5%D8%A9%E2%80%AD/data=!4m7!3m6!1s0x3e2efdc6c840b3ed:0x792ad260e10b7e!8m2!3d24.7724577!4d46.6973369!16s%2Fg%2F11mwkdclc9!19sChIJ7bNAyMb9Lj4RfgvhYNIqeQA?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6973369,
+    "lat": 24.7724577
+  },
+  {
+    "id": 2,
+    "name": "ناريز",
+    "rating": 3.8,
+    "rating_count": 39,
+    "url": "https://www.google.com/maps/place/%D9%86%D8%A7%D8%B1%D9%8A%D8%B2%E2%80%AD/data=!4m7!3m6!1s0x3e2faacd291e6591:0x3e908558d2f0f63f!8m2!3d24.8072766!4d46.8521092!16s%2Fg%2F11c5_5k_zz!19sChIJkWUeKc2qLz4RP_bw0liFkD4?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.8521092,
+    "lat": 24.8072766
+  },
+  {
+    "id": 3,
+    "name": "Fc Lounge - اف سي لاونج",
+    "rating": 3.5,
+    "rating_count": 539,
+    "url": "https://www.google.com/maps/place/Fc+Lounge+-+%D8%A7%D9%81+%D8%B3%D9%8A+%D9%84%D8%A7%D9%88%D9%86%D8%AC%E2%80%AD/data=!4m7!3m6!1s0x3e2eff79d7dd770d:0xbd5029a7e12e0c2b!8m2!3d24.8131149!4d46.7680585!16s%2Fg%2F11lgkw1ffk!19sChIJDXfd13n_Lj4RKwwu4acpUL0?authuser=0&hl=en&rclk=1",
+    "hours_24": "True",
+    "lng": 46.7680585,
+    "lat": 24.8131149
+  },
+  {
+    "id": 4,
+    "name": "PEAKS",
+    "rating": 4.6,
+    "rating_count": 25,
+    "url": "https://www.google.com/maps/place/PEAKS/data=!4m7!3m6!1s0x3e2ee380585f0151:0xab784cd32a1e3d85!8m2!3d24.742045!4d46.6348092!16s%2Fg%2F11s0qh89n0!19sChIJUQFfWIDjLj4RhT0eKtNMeKs?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6348092,
+    "lat": 24.742045
+  },
+  {
+    "id": 5,
+    "name": "Joffrey's جوفريز",
+    "rating": 2.9,
+    "rating_count": 34,
+    "url": "https://www.google.com/maps/place/Joffrey%27s+%D8%AC%D9%88%D9%81%D8%B1%D9%8A%D8%B2%E2%80%AD/data=!4m7!3m6!1s0x3e2f1d97addc7711:0xc93e4546dea3a486!8m2!3d24.7146875!4d46.6349375!16s%2Fg%2F11p00bzdsv!19sChIJEXfcrZcdLz4RhqSj3kZFPsk?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6349375,
+    "lat": 24.7146875
+  },
+  {
+    "id": 6,
+    "name": "Just A Space",
+    "rating": 3.7,
+    "rating_count": 642,
+    "url": "https://www.google.com/maps/place/Just+A+Space/data=!4m7!3m6!1s0x3e2ee37ebbba0adb:0x6244de085a0cf625!8m2!3d24.7537907!4d46.6391066!16s%2Fg%2F11k453rlpd!19sChIJ2wq6u37jLj4RJfYMWgjeRGI?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6391066,
+    "lat": 24.7537907
+  },
+  {
+    "id": 7,
+    "name": "Arabica cafe",
+    "rating": 3.9,
+    "rating_count": 19,
+    "url": "https://www.google.com/maps/place/Arabica+cafe/data=!4m7!3m6!1s0x3e2f010780272ff5:0xb6f597526c208e6f!8m2!3d24.7712633!4d46.8047485!16s%2Fg%2F11j_1m6cyh!19sChIJ9S8ngAcBLz4Rb44gbFKX9bY?authuser=0&hl=en&rclk=1",
+    "hours_24": "True",
+    "lng": 46.8047485,
+    "lat": 24.7712633
+  },
+  {
+    "id": 8,
+    "name": "ستار بوكس",
+    "rating": 4,
+    "rating_count": 114,
+    "url": "https://www.google.com/maps/place/%D8%B3%D8%AA%D8%A7%D8%B1+%D8%A8%D9%88%D9%83%D8%B3%E2%80%AD/data=!4m7!3m6!1s0x3e2f01b2b28fe6bf:0x76eea34763718782!8m2!3d24.7241864!4d46.7757565!16s%2Fg%2F11hdlpbbjj!19sChIJv-aPsrIBLz4RgodxY0ej7nY?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.7757565,
+    "lat": 24.7241864
+  },
+  {
+    "id": 9,
+    "name": "10AM CAFE",
+    "rating": 4.9,
+    "rating_count": 25,
+    "url": "https://www.google.com/maps/place/10AM+CAFE/data=!4m7!3m6!1s0x3e2f1dd0b5250ffb:0x58974df29c6dee19!8m2!3d24.7010111!4d46.6470984!16s%2Fg%2F11rzpybx2f!19sChIJ-w8ltdAdLz4RGe5tnPJNl1g?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6470984,
+    "lat": 24.7010111
+  },
+  {
+    "id": 10,
+    "name": "كيان كافيه",
+    "rating": 4,
+    "rating_count": 494,
+    "url": "https://www.google.com/maps/place/%D9%83%D9%8A%D8%A7%D9%86+%D9%83%D8%A7%D9%81%D9%8A%D9%87%E2%80%AD/data=!4m7!3m6!1s0x3e2f1bdee5cc8bb9:0x6d0ac8ac0c8713ce!8m2!3d24.5736094!4d46.6238151!16s%2Fg%2F11rhp2nhl5!19sChIJuYvM5d4bLz4RzhOHDKzICm0?authuser=0&hl=en&rclk=1",
+    "hours_24": "True",
+    "lng": 46.6238151,
+    "lat": 24.5736094
+  },
+  {
+    "id": 11,
+    "name": "McCafe",
+    "rating": 4.1,
+    "rating_count": 92,
+    "url": "https://www.google.com/maps/place/McCafe/data=!4m7!3m6!1s0x3e2f052d56ff26cf:0x498cefb25c5fe84b!8m2!3d24.6703427!4d46.7276564!16s%2Fg%2F11s5txcrtd!19sChIJzyb_Vi0FLz4RS-hfXLLvjEk?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.7276564,
+    "lat": 24.6703427
+  },
+  {
+    "id": 12,
+    "name": "عنوان القهوة",
+    "rating": 4.1,
+    "rating_count": 53,
+    "url": "https://www.google.com/maps/place/%D8%B9%D9%86%D9%88%D8%A7%D9%86+%D8%A7%D9%84%D9%82%D9%87%D9%88%D8%A9%E2%80%AD/data=!4m7!3m6!1s0x3e2fa9e93490fabb:0x2c8314bd3011f26b!8m2!3d24.7125499!4d46.836938!16s%2Fg%2F11tbz48c6l!19sChIJu_qQNOmpLz4Ra_IRML0Ugyw?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.836938,
+    "lat": 24.7125499
+  },
+  {
+    "id": 13,
+    "name": "Barista Tools",
+    "rating": 4,
+    "rating_count": 455,
+    "url": "https://www.google.com/maps/place/Barista+Tools/data=!4m7!3m6!1s0x3e2efdf26d4c8095:0x2be11916201e39a8!8m2!3d24.7774284!4d46.6878705!16s%2Fg%2F11nxg0fjgl!19sChIJlYBMbfL9Lj4RqDkeIBYZ4Ss?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6878705,
+    "lat": 24.7774284
+  },
+  {
+    "id": 14,
+    "name": "barn’s cafe",
+    "rating": 4.2,
+    "rating_count": 76,
+    "url": "https://www.google.com/maps/place/barn%E2%80%99s+cafe/data=!4m7!3m6!1s0x3e2f1138e20ff0e7:0xa5b4c9e5a7006df3!8m2!3d24.5525426!4d46.6258991!16s%2Fg%2F11rzr217l2!19sChIJ5_AP4jgRLz4R820Ap-XJtKU?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6258991,
+    "lat": 24.5525426
+  },
+  {
+    "id": 15,
+    "name": "blue beans bakery & cafe بلو بينز",
+    "rating": 4.6,
+    "rating_count": 148,
+    "url": "https://www.google.com/maps/place/blue+beans+bakery+%26+cafe+%D8%A8%D9%84%D9%88+%D8%A8%D9%8A%D9%86%D8%B2%E2%80%AD/data=!4m7!3m6!1s0x3e2efd49228a65bf:0x6849077cde9ae057!8m2!3d24.7859556!4d46.6579725!16s%2Fg%2F11rb33r211!19sChIJv2WKIkn9Lj4RV-Ca3nwHSWg?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6579725,
+    "lat": 24.7859556
+  },
+  {
+    "id": 16,
+    "name": "وزنة ورق لتقديم الشاي",
+    "rating": 5,
+    "rating_count": 37,
+    "url": "https://www.google.com/maps/place/%D9%88%D8%B2%D9%86%D8%A9+%D9%88%D8%B1%D9%82+%D9%84%D8%AA%D9%82%D8%AF%D9%8A%D9%85+%D8%A7%D9%84%D8%B4%D8%A7%D9%8A%E2%80%AD/data=!4m7!3m6!1s0x3e2f077301f68b1b:0xd36b0619cf397f44!8m2!3d24.6766428!4d46.8016956!16s%2Fg%2F11sf2_yq0z!19sChIJG4v2AXMHLz4RRH85zxkGa9M?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.8016956,
+    "lat": 24.6766428
+  },
+  {
+    "id": 17,
+    "name": "Aromaz coffee",
+    "rating": 4.4,
+    "rating_count": 15,
+    "url": "https://www.google.com/maps/place/Aromaz+coffee/data=!4m7!3m6!1s0x3e2efdea97eabc2d:0xac3d0bd678ed4351!8m2!3d24.8186445!4d46.6869512!16s%2Fg%2F11fmh7tz10!19sChIJLbzql-r9Lj4RUUPteNYLPaw?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6869512,
+    "lat": 24.8186445
+  },
+  {
+    "id": 18,
+    "name": "Dunkin Donuts",
+    "rating": 4.2,
+    "rating_count": 471,
+    "url": "https://www.google.com/maps/place/Dunkin+Donuts/data=!4m7!3m6!1s0x3e2ee179d12e29dd:0xdfd9514c47de3fa7!8m2!3d24.7677145!4d46.5773147!16s%2Fg%2F11fmrqqwf9!19sChIJ3Sku0XnhLj4Rpz_eR0xR2d8?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.5773147,
+    "lat": 24.7677145
+  },
+  {
+    "id": 19,
+    "name": "ضحى لاونج DUHA LOUNGE",
+    "rating": 4.2,
+    "rating_count": 245,
+    "url": "https://www.google.com/maps/place/%D8%B6%D8%AD%D9%89+%D9%84%D8%A7%D9%88%D9%86%D8%AC+DUHA+LOUNGE%E2%80%AD/data=!4m7!3m6!1s0x3e2efd2f75e5dead:0xfa01899011853425!8m2!3d24.8027909!4d46.6947933!16s%2Fg%2F11pppy7kzz!19sChIJrd7ldS_9Lj4RJTSFEZCJAfo?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6947933,
+    "lat": 24.8027909
+  },
+  {
+    "id": 20,
+    "name": "كرك عزام",
+    "rating": 4.4,
+    "rating_count": 36,
+    "url": "https://www.google.com/maps/place/%D9%83%D8%B1%D9%83+%D8%B9%D8%B2%D8%A7%D9%85%E2%80%AD/data=!4m7!3m6!1s0x3e2f195103d56039:0xb650ca162fe723ec!8m2!3d24.5869754!4d46.543266!16s%2Fg%2F11pz00j90d!19sChIJOWDVA1EZLz4R7CPnLxbKULY?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.543266,
+    "lat": 24.5869754
+  },
+  {
+    "id": 21,
+    "name": "Pretzel Maker",
+    "rating": 4.5,
+    "rating_count": 10,
+    "url": "https://www.google.com/maps/place/Pretzel+Maker+%D8%A8%D9%8A%D8%B1%D8%AA%D8%B2%D9%84+%D9%85%D9%8A%D9%83%D8%B1%E2%80%AD/data=!4m7!3m6!1s0x3e2f058fe643bd91:0xdf52bd8a77ae5c74!8m2!3d24.6786722!4d46.7246902!16s%2Fg%2F11h__100dn!19sChIJkb1D5o8FLz4RdFyud4q9Ut8?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.7246902,
+    "lat": 24.6786722
+  },
+  {
+    "id": 22,
+    "name": "WAST ALQAHRA Coffee shop",
+    "rating": 4.6,
+    "rating_count": 30,
+    "url": "https://www.google.com/maps/place/WAST+ALQAHRA+Coffee+shop+-+%D9%83%D8%A7%D9%81%D9%8A%D9%87+%D9%88%D8%B3%D8%B7+%D8%A7%D9%84%D9%82%D8%A7%D9%87%D8%B1%D8%A9%E2%80%AD/data=!4m7!3m6!1s0x3e2f091e6083fd41:0xb5893b1c6c20a0d0!8m2!3d24.5916426!4d46.7587146!16s%2Fg%2F11tp3v5qh_!19sChIJQf2DYB4JLz4R0KAgbBw7ibU?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.7587146,
+    "lat": 24.5916426
+  },
+  {
+    "id": 23,
+    "name": "Caffa coffee",
+    "rating": 3.9,
+    "rating_count": 67,
+    "url": "https://www.google.com/maps/place/Caffa+coffee/data=!4m7!3m6!1s0x3e2f06c337657069:0xfd52f10246125a6f!8m2!3d24.6886218!4d46.7763036!16s%2Fg%2F11ckrcn5ts!19sChIJaXBlN8MGLz4Rb1oSRgLxUv0?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.7763036,
+    "lat": 24.6886218
+  },
+  {
+    "id": 24,
+    "name": "Coffee House",
+    "rating": 3.6,
+    "rating_count": 149,
+    "url": "https://www.google.com/maps/place/Coffee+House/data=!4m7!3m6!1s0x3e2f1a6497aded19:0x7bfc798e666475c2!8m2!3d24.5853449!4d46.6263145!16s%2Fg%2F12q4ynw5l!19sChIJGe2tl2QaLz4RwnVkZo55_Hs?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6263145,
+    "lat": 24.5853449
+  },
+  {
+    "id": 25,
+    "name": "starbucks",
+    "rating": 4,
+    "rating_count": 51,
+    "url": "https://www.google.com/maps/place/starbucks/data=!4m7!3m6!1s0x3e2f0f15d1b5417f:0x8ec869cdeb873717!8m2!3d24.5606151!4d46.6770931!16s%2Fg%2F11rxp8v1rb!19sChIJf0G10RUPLz4RFzeH681pyI4?authuser=0&hl=en&rclk=1",
+    "hours_24": "False",
+    "lng": 46.6770931,
+    "lat": 24.5606151
+  }
+]
