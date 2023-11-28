@@ -16,6 +16,8 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
 //    List<Restaurant> findAllByHours_24(Boolean hours);
     List<Restaurant> findAllByHours24IsTrue();
 
+    List<Restaurant> findAllByRatingGreaterThanEqual(Integer number);
+
 
     //Todo find location
 
