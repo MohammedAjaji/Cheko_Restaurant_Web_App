@@ -41,4 +41,10 @@ public class RestaurantController {
         List<Restaurant> restaurants = restaurantService.getAll24Hours();
         return ResponseEntity.status(200).body(restaurants);
     }
+
+    @GetMapping("/rating/{number}")
+    public ResponseEntity getAllRatingIsGreater(@PathVariable Integer number) {
+        List<Restaurant> restaurants = restaurantService.getAllRatingIsGreater(number);
+        return ResponseEntity.status(200).body(restaurants);
+    }
 }
