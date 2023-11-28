@@ -39,5 +39,7 @@ public class RestaurantService {
     }
 
 
-
+    public List<Restaurant> getAllRatingIsGreater(Integer number) {
+        return restaurantRepository.findAllByRatingGreaterThanEqual(number);
+    }
 }
