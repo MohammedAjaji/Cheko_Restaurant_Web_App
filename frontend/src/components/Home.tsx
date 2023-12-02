@@ -1,262 +1,148 @@
-import React from 'react';
-import '../style.css'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RestaurantActions } from "../redux/slices/RestaurantSlice";
+import {
+  MenuActions,
+  fetchCategories,
+  fetchMenus,
+} from "../redux/slices/MenuSlice";
+import { RootState, AppDispatch } from "../redux/store";
+import { Menu } from "../types/types";
+import { Link } from "react-router-dom";
 
 function Home() {
+  const dispatch = useDispatch<AppDispatch>();
+  const menus = useSelector((state: RootState) => state.menus);
+  const [name, setName] = useState("");
+  const [counts, setCounts] = useState<{ [id: number]: number }>({});
+
+  const addNumber = (itemId: number) => {
+    setCounts({ ...counts, [itemId]: (counts[itemId] || 0) + 1 });
+  };
+
+  const subNumber = (itemId: number) => {
+    setCounts({ ...counts, [itemId]: Math.max((counts[itemId] || 0) - 1, 0) });
+  };
+
+  useEffect(() => {
+    dispatch(fetchMenus(""));
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
+  const getMenuBycategory = (name: string) => {
+    if (name === "All") {
+      dispatch(fetchMenus(""));
+      setName(name);
+    } else {
+      dispatch(fetchMenus(`category/${name}`));
+      setName(name);
+    }
+  };
+
+  if (menus.isLoading)
     return (
-        <div className="home-page">
-            <div className="div">
-                <div className="overlap">
-                    <div className="group">
-                        <img className="screen-shot" alt="Screen shot" src="screen-shot-1444-01-20-at-3-04-1.png" />
-                    </div>
-                    <div className="rectangle" />
-                    <div className="overlap-wrapper">
-                        <div className="overlap-group">
-                            <div className="text-wrapper">Search</div>
-                            <img className="search" alt="Search" src="search-1.svg" />
-                            <div className="text-wrapper-2">Filter</div>
-                            <img className="line" alt="Line" src="line-1.svg" />
-                            <img className="ic-filter-list" alt="Ic filter list" src="ic-filter-list-48px-1.svg" />
-                            <div className="div-wrapper">
-                                <div className="text-wrapper-3">Search</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="group-2">
-
-                            <div className="text-wrapper-4">Home</div>
-
-                        <div className="text-wrapper-5">Map</div>
-                    </div>
-                </div>
-                <div className="group-3">
-                    <div className="rectangle-wrapper">
-                        <div className="rectangle-2" />
-                    </div>
-                    <img className="ic-wb-sunny" alt="Ic wb sunny" src="ic-wb-sunny-48px-1.svg" />
-                    <img className="moon" alt="Moon" src="moon-1.svg" />
-                </div>
-                <div className="text-wrapper-6">Breaskfast</div>
-                <div className="overlap-group-wrapper">
-                    <div className="overlap-3">
-                        <div className="text-wrapper-7">Breaskfast</div>
-                        <div className="text-wrapper-8">23</div>
-                        <div className="overlap-group-2">
-                            <div className="rectangle-3" />
-                            <img className="img" alt="Food croissant" src="food-croissant-1.svg" />
-                        </div>
-                    </div>
-                </div>
-                <div className="group-4">
-                    <div className="overlap-4">
-                        <div className="text-wrapper-9">Orders</div>
-                        <div className="text-wrapper-10">3</div>
-                        <div className="overlap-group-2">
-                            <div className="rectangle-4" />
-                            <img className="multiple-documents" alt="Multiple documents" src="multiple-documents-files-1.svg" />
-                        </div>
-                    </div>
-                </div>
-                <div className="group-5">
-                    <div className="overlap-4">
-                        <div className="text-wrapper-11">Drinks</div>
-                        <div className="text-wrapper-12">23</div>
-                        <div className="overlap-group-2">
-                            <div className="rectangle-5" />
-                            <img className="img" alt="Coffee cup" src="coffee-cup-1-1.svg" />
-                        </div>
-                    </div>
-                </div>
-                <div className="group-6">
-                    <div className="overlap-4">
-                        <div className="text-wrapper-13">Soups</div>
-                        <div className="text-wrapper-14">23</div>
-                        <div className="overlap-group-2">
-                            <div className="rectangle-6" />
-                            <img className="food-soup" alt="Food soup" src="food-soup-1.svg" />
-                        </div>
-                    </div>
-                </div>
-                <div className="group-7">
-                    <div className="overlap-4">
-                        <div className="text-wrapper-15">Sushi</div>
-                        <div className="text-wrapper-14">23</div>
-                        <div className="overlap-group-2">
-                            <div className="rectangle-7" />
-                            <img className="food-sushi" alt="Food sushi" src="food-sushi-1.svg" />
-                        </div>
-                    </div>
-                </div>
-                <img className="line-2" alt="Line" src="line-2.svg" />
-                <div className="group-8">
-                    <div className="overlap-5">
-                        <div className="text-wrapper-16">Breaskfast 2</div>
-                        <div className="text-wrapper-17">200 Cal</div>
-                        <div className="text-wrapper-18">80 SR</div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1-8.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                        <img className="mask-group" alt="Mask group" src="mask-group-8.png" />
-                    </div>
-                </div>
-                <img className="line-3" alt="Line" src="line-3.svg" />
-                <div className="group-9">
-                    <div className="overlap-5">
-                        <div className="overlap-6">
-                            <div className="text-wrapper-20">Breaskfast Gold</div>
-                            <div className="text-wrapper-21">200 Cal</div>
-                            <div className="text-wrapper-22">80 SR</div>
-                            <div className="overlap-7">
-                                <img className="mask-group-2" alt="Mask group" src="mask-group.png" />
-                                <div className="group-10">
-                                    <div className="overlap-group-4">
-                                        <div className="text-wrapper-23">Best Sale</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                    </div>
-                </div>
-                <div className="group-11">
-                    <div className="overlap-5">
-                        <div className="text-wrapper-16">Breaskfast Gold</div>
-                        <div className="text-wrapper-17">200 Cal</div>
-                        <div className="text-wrapper-18">80 SR</div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1-3.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                        <img className="mask-group" alt="Mask group" src="mask-group-3.png" />
-                    </div>
-                </div>
-                <div className="group-12">
-                    <div className="overlap-5">
-                        <div className="text-wrapper-16">Breaskfast Gold</div>
-                        <div className="text-wrapper-17">200 Cal</div>
-                        <div className="text-wrapper-18">80 SR</div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1-6.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                        <img className="mask-group" alt="Mask group" src="mask-group-6.png" />
-                    </div>
-                </div>
-                <div className="group-13">
-                    <div className="overlap-5">
-                        <div className="overlap-8">
-                            <div className="overlap-9">
-                                <div className="text-wrapper-20">Breaskfast 2</div>
-                                <div className="text-wrapper-21">200 Cal</div>
-                                <div className="text-wrapper-22">80 SR</div>
-                                <div className="overlap-10">
-                                    <img className="mask-group-2" alt="Mask group" src="image.png" />
-                                    <div className="group-14">
-                                        <div className="overlap-group-4">
-                                            <div className="text-wrapper-23">Best Sale</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="overlap-11">
-                                <div className="rectangle-8" />
-                            </div>
-                        </div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="image.svg" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                    </div>
-                </div>
-                <div className="group-15">
-                    <div className="overlap-5">
-                        <div className="text-wrapper-16">Breaskfast 2</div>
-                        <div className="text-wrapper-17">200 Cal</div>
-                        <div className="text-wrapper-18">80 SR</div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1-4.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                        <img className="mask-group" alt="Mask group" src="mask-group-4.png" />
-                    </div>
-                </div>
-                <div className="group-16">
-                    <div className="overlap-5">
-                        <div className="text-wrapper-16">Breaskfast 2</div>
-                        <div className="text-wrapper-17">200 Cal</div>
-                        <div className="text-wrapper-18">80 SR</div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1-7.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                        <img className="mask-group" alt="Mask group" src="mask-group-7.png" />
-                    </div>
-                </div>
-                <div className="group-17">
-                    <div className="overlap-5">
-                        <div className="text-wrapper-16">Breaskfast 2</div>
-                        <div className="text-wrapper-17">200 Cal</div>
-                        <div className="text-wrapper-18">80 SR</div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1-5.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                        <img className="mask-group" alt="Mask group" src="mask-group-5.png" />
-                    </div>
-                </div>
-                <div className="group-18">
-                    <div className="overlap-5">
-                        <div className="overlap-6">
-                            <div className="text-wrapper-20">Breaskfast Gold</div>
-                            <div className="text-wrapper-21">200 Cal</div>
-                            <div className="text-wrapper-22">80 SR</div>
-                            <div className="overlap-7">
-                                <img className="mask-group-2" alt="Mask group" src="mask-group-2.png" />
-                                <div className="group-10">
-                                    <div className="overlap-group-4">
-                                        <div className="text-wrapper-23">Best Sale</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="ic-add-wrapper">
-                            <img className="ic-add" alt="Ic add" src="ic-add-48px-1-2.svg" />
-                        </div>
-                        <div className="overlap-group-3">
-                            <div className="rectangle-8" />
-                        </div>
-                        <div className="text-wrapper-19">0</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div className="flex justify-center items-center h-screen">
+        <div className="rounded-full h-20 w-20 bg-pink-300 animate-ping"></div>
+      </div>
     );
+  if (menus.error)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div
+          className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <span className="font-medium"> ERROR: {menus.error}</span> .
+        </div>
+      </div>
+    );
+
+  console.log("counts :>> ", counts);
+
+  return (
+    <div>
+      <div>
+        <div className=" mt-20 ml-28">
+          <div className="md:flex">
+            <ul className="flex space-x-4 text-lg font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0 ">
+              <button
+                className="inline-flex items-center px-4 py-3 rounded-lg shadow hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+                onClick={() => getMenuBycategory("All")}
+              >
+                <span>All</span>
+              </button>
+              {menus.categories.map((category) => {
+                return (
+                  <li>
+                    <button
+                      className="inline-flex items-center px-4 py-3 rounded-lg shadow hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+                      onClick={() => getMenuBycategory(category.category)}
+                    >
+                      <span className=" mr-2 border-r-2 pr-2">
+                        {category.category}
+                      </span>
+                      <span>{category.count}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h1 className=" font-medium text-[50px] ml-14 mt-10 dark:text-white">
+        {name}
+      </h1>
+      <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700" />
+
+      <div className="mt-12 container grid grid-cols-1 gap-6  mx-auto md:grid-cols-3 md:mt-12 ">
+        {menus.items.map((item: Menu) => {
+          return (
+            <Link
+              to="/"
+              className="flex flex-col items-center bg-white rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
+            >
+              <div className="flex flex-col justify-between p-4 leading-normal md:order-2">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {item.name}
+                </h5>
+                <p className="mb-3 text-xs font-normal text-gray-400 dark:text-gray-500">
+                  {item.calorie} cal
+                </p>
+
+                <div className="flex items-center mb-0 justify-end">
+                  <p className="font-medium text-2xl mr-20 text-pink-300 px-2">
+                    {item.price} SR
+                  </p>
+                  <button
+                    className="p-2.5 w-10 h-10 text-sm font-medium text-black bg-pink-200 rounded-xl mr-2 border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+                    onClick={() => subNumber(item.id)}
+                  >
+                    -
+                  </button>
+                  <p className="font-medium text-pink-400 px-2">
+                    {counts[item.id] || 0}
+                  </p>
+                  <button
+                    className="p-2.5 w-10 h-10 text-sm font-medium text-black bg-pink-200 rounded-xl ml-2 border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+                    onClick={() => addNumber(item.id)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <img
+                className="object-cover w-full mx-4 rounded-xl h-96 md:h-36 md:m-3 md:w-36 md:rounded-xl md:order-1"
+                src={item.image}
+                alt={item.name}
+              />
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default Home;
-

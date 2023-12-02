@@ -1,47 +1,110 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Search from "./Search";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 function Navbar() {
-    const [darkMode, setDarkMode] = useState(false);
+  const [theme, setTheme] = useState("light");
+  // const [activeLink, setActiveLink] = useState("");
+  const location = useLocation();
 
-    useEffect(() => {
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        setDarkMode(isDarkMode);
-    }, []);
+  console.log("location :>> ", location);
 
-    useEffect(() => {
-        document.body.classList.toggle('dark', darkMode);
-        localStorage.setItem('darkMode', darkMode.toString());
-    }, [darkMode]);
+  // const handleLinkClick = (link: string) => {
+  //   setActiveLink(link);
+  // };
+  const linkClass = (link: string): string => {
+    console.log("link :>> ", link);
+    return `box-border h-16 py-2 p-3 pt-5 rounded-br-lg rounded-bl-lg ${
+      location.pathname === link
+        ? "bg-pink-200 text-black"
+        : "text-white hover:bg-pink-200 hover:text-black"
+    }`;
+  };
 
-    const toggleDarkMode = () => setDarkMode(!darkMode);
-    return (
+  // console.log("activeLink :>> ", activeLink);
 
-        <div className="overlap">
-            <div className="group">
-                <img className="screen-shot" alt="Screen shot" src="screen-shot-1444-01-20-at-3-04-1.png" />
-            </div>
-            <div className="rectangle" />
-            <div className="overlap-wrapper">
-                <div className="overlap-group">
-                    <div className="text-wrapper">Search</div>
-                    <img className="search" alt="Search" src="search-1.svg" />
-                    <div className="text-wrapper-2">Filter</div>
-                    <img className="line" alt="Line" src="line-1.svg" />
-                    <img className="ic-filter-list" alt="Ic filter list" src="ic-filter-list-48px-1.svg" />
-                    <div className="div-wrapper">
-                        <div className="text-wrapper-3">Search</div>
-                    </div>
-                </div>
-            </div>
-            <div className="group-2">
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
-                <div className="text-wrapper-4">Home</div>
+  const handleThemeChange = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+    console.log("theme :>> ", theme);
+  };
 
-                <div className="text-wrapper-5">Map</div>
-            </div>
+  return (
+    <div>
+      <nav className="bg-gray-900 mr-20 rounded-br-[50px] box-border h-28 text-3xl">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+          <ul className="font-medium flex flex-row ">
+            <li className="pr-2 ">
+              {/* <p className="block py-2 px-3 text-white rounded hover:bg-pink-200 hover:text-black"> */}
+              <Link to="/">
+                <p
+                  className={linkClass("/")}
+                  // onClick={() => handleLinkClick("/")}
+                >
+                  Home
+                </p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/map">
+                <p
+                  className={linkClass("/map")}
+                  // onClick={() => handleLinkClick("/map")}
+                >
+                  Map
+                </p>
+              </Link>
+              {/* <p className="block py-2 px-3 text-white rounded hover:bg-pink-200 hover:text-black"> */}
+            </li>
+          </ul>
+          <div className="absolute right-6 top-3 flex items-center mb-5 cursor-pointer">
+            <button
+              id="theme-toggle"
+              type="button"
+              onClick={handleThemeChange}
+              className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+            >
+              {theme === "light" ? (
+                <p className="text-2xl ml-1 text-gray-900 dark:text-gray-300">
+                  <FaMoon />
+                </p>
+              ) : (
+                <p className="text-2xl  ml-1 text-gray-900 dark:text-gray-300">
+                  <FaSun />
+                </p>
+              )}
+            </button>
+          </div>
+          {/* <label className="absolute right-2 top-3 flex items-center mb-5 cursor-pointer">
+            <span className="text-sm mr-1 text-gray-900 dark:text-gray-300">
+              <FaSun />
+            </span>
+            <input
+              type="checkbox"
+              value=""
+              className="sr-only peer"
+              onChange={handleThemeChange}
+            />
+            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none  peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full  dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <span className="text-sm ml-1 text-gray-900 dark:text-gray-300">
+              <FaMoon />
+            </span>
+          </label> */}
         </div>
-
-    );
+        <div className=" m-4">
+          <Search />
+        </div>
+      </nav>
+    </div>
+  );
 }
 
 export default Navbar;
