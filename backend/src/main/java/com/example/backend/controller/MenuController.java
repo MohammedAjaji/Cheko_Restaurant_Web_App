@@ -5,6 +5,7 @@ import com.example.backend.service.MenuService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/menu")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class MenuController {
 
     private final MenuService menuService;
