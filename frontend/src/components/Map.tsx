@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import mapboxgl, { LngLatLike } from "mapbox-gl";
+import mapboxgl from "mapbox-gl";
 import ReactDOMServer from "react-dom/server";
 
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -13,8 +13,6 @@ interface MapComponentProps {
   accessToken: string;
   center: [number, number];
   zoom: number;
-  // center: LngLatLike;
-  markers: [number, number][]; // Array of marker coordinates
 }
 
 const Map: React.FC<MapComponentProps> = ({ accessToken, center, zoom }) => {
@@ -73,8 +71,23 @@ const Map: React.FC<MapComponentProps> = ({ accessToken, center, zoom }) => {
     return () => map.remove();
   }, [accessToken, center, zoom, restaurants.items]);
 
-  if (restaurants.isLoading) return <div>Loading...</div>;
-  if (restaurants.error) return <div>Error: {restaurants.error}</div>;
+  if (restaurants.isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="rounded-full h-20 w-20 bg-pink-300 animate-ping"></div>
+      </div>
+    );
+  if (restaurants.error)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div
+          className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <span className="font-medium"> ERROR: {restaurants.error}</span> .
+        </div>
+      </div>
+    );
   return (
     <div
       ref={mapContainerRef}
