@@ -9,6 +9,8 @@ import HomePage from "./components/Home";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Restaurants from "./components/Restaurants";
+import RestaurantsDetails from "./components/RestaurantsDetails";
+import Menus from "./components/Menus";
 // import dotenv from "dotenv";
 
 // dotenv.config()
@@ -24,7 +26,7 @@ const markers: [number, number][] = [
 
 function App() {
   return (
-    <div className=" bg-gray-100 dark:bg-gray-900">
+    <div className=" min-h-screen min-w-screen bg-gray-100 dark:bg-gray-900">
       {/*<div className="bg-blue-500 text-white p-4">*/}
       {/*    This is a Tailwind CSS example component.*/}
       {/*</div>*/}
@@ -36,6 +38,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/restaurants" element={<Restaurants />} />
+        <Route path="/restaurants/:id" element={<RestaurantsDetails />} />
+        <Route path="/menus" element={<Menus />} />
+
         <Route
           path="map"
           element={

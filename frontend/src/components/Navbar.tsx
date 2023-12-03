@@ -41,8 +41,8 @@ function Navbar() {
     <div>
       <nav className="bg-gray-900 mr-20 rounded-br-[50px] box-border h-28 text-3xl">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-          <ul className="font-medium flex flex-row ">
-            <li className="pr-2 ">
+          <ul className="font-medium flex flex-row gap-3  ">
+            <li>
               {/* <p className="block py-2 px-3 text-white rounded hover:bg-pink-200 hover:text-black"> */}
               <Link to="/">
                 <p
@@ -60,6 +60,17 @@ function Navbar() {
                   // onClick={() => handleLinkClick("/map")}
                 >
                   Map
+                </p>
+              </Link>
+              {/* <p className="block py-2 px-3 text-white rounded hover:bg-pink-200 hover:text-black"> */}
+            </li>
+            <li>
+              <Link to="/restaurants">
+                <p
+                  className={linkClass("/restaurants")}
+                  // onClick={() => handleLinkClick("/map")}
+                >
+                  Restaurants
                 </p>
               </Link>
               {/* <p className="block py-2 px-3 text-white rounded hover:bg-pink-200 hover:text-black"> */}

@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import mapboxgl, { LngLatLike } from "mapbox-gl";
+import ReactDOMServer from "react-dom/server";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { fetchRestaurants } from "../redux/slices/RestaurantSlice";
 import { Restaurant } from "../types/types";
+import MapPopup from "./MapPopup";
 
 interface MapComponentProps {
   accessToken: string;
@@ -25,6 +27,16 @@ const Map: React.FC<MapComponentProps> = ({ accessToken, center, zoom }) => {
     dispatch(fetchRestaurants(""));
   }, [dispatch]);
 
+  const popupHTML = (name: string, rating: number, id: number, url: string) => {
+    return ReactDOMServer.renderToStaticMarkup(
+      <MapPopup name={name} rating={rating} id={id} url={url} />
+    );
+  };
+
+  const navigateTo = (id: number) => {
+    window.location.href = `/restaurants/${id}`;
+  };
+
   useEffect(() => {
     mapboxgl.accessToken = accessToken;
 
@@ -42,10 +54,14 @@ const Map: React.FC<MapComponentProps> = ({ accessToken, center, zoom }) => {
     // Add markers to the map
     restaurants.items.forEach((item: Restaurant) => {
       const popup = new mapboxgl.Popup({ offset: 25 })
-        .setHTML(
-          `<h1>Marker ${item.name} Information</h1><p>This is some information about marker ${item.name}.</p><img class= "rounded-full" src = "https://cdn.langeek.co/photo/26023/original/any"/>`
-        )
+        .setHTML(popupHTML(item.name, item.rating, item.id, item.url))
         .addTo(map);
+      popup.on("open", () => {
+        const button = document.getElementById(`navigate-button-${item.id}`);
+        if (button) {
+          button.addEventListener("click", () => navigateTo(item.id));
+        }
+      });
 
       new mapboxgl.Marker()
         .setLngLat([item.lng, item.lat])
