@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -42,4 +43,9 @@ public class RestaurantService {
     public List<Restaurant> getAllRatingIsGreater(Integer number) {
         return restaurantRepository.findAllByRatingGreaterThanEqual(number);
     }
+
+    public List<Map<String, Integer>>  countMenuItemsByCategory(Integer id){
+        return restaurantRepository.countMenuItemsByCategory(id);
+    }
+
 }

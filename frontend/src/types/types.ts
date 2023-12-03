@@ -20,7 +20,6 @@ export type Menu = {
   category: string;
   lat: number;
   lng: number;
-  counter: number;
 };
 
 export type Category = {

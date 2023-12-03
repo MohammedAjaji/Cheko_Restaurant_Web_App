@@ -39,6 +39,13 @@ public class MenuController {
         return ResponseEntity.status(200).body(menus);
     }
 
+    @GetMapping("/search/{searchWord}/{category}")
+    public ResponseEntity searchMenusWithCategory(@PathVariable String searchWord, @PathVariable String category){
+        List<Menu> menus = menuService.searchMenusWithCategory(searchWord,category);
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        return ResponseEntity.status(200).body(menus);
+    }
+
     @GetMapping("/category")
     public ResponseEntity getAllCategories() {
         List<String> categories = menuService.getAllCategories();
@@ -55,5 +62,7 @@ public class MenuController {
     public ResponseEntity countMenuItemsByCategory(){
         return ResponseEntity.status(200).body(menuService.countMenuItemsByCategory());
     }
+
+
 
 }

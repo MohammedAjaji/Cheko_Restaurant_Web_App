@@ -25,6 +25,7 @@ export const fetchCategories = createAsyncThunk(
 
 export type MenuState = {
   items: Menu[];
+  item: Menu | null;
   categories: Category[];
   error: null | string;
   isLoading: boolean;
@@ -32,6 +33,7 @@ export type MenuState = {
 
 const initialState: MenuState = {
   items: [],
+  item: null,
   categories: [],
   error: null,
   isLoading: false,
@@ -47,10 +49,19 @@ export const MenuSlice = createSlice({
         state.isLoading = true;
         console.log("state.isLoading :>> ", state.isLoading);
       })
-      .addCase(fetchMenus.fulfilled, (state, action: PayloadAction<Menu[]>) => {
-        state.isLoading = false;
-        state.items = action.payload;
-      })
+      .addCase(
+        fetchMenus.fulfilled,
+        (state, action: PayloadAction<Menu[] | Menu>) => {
+          state.isLoading = false;
+          if (Array.isArray(action.payload)) {
+            state.items = action.payload;
+            state.error = null;
+          } else {
+            state.item = action.payload;
+            state.error = null;
+          }
+        }
+      )
       .addCase(fetchMenus.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || "Failed to fetch menus";
@@ -63,6 +74,7 @@ export const MenuSlice = createSlice({
         (state, action: PayloadAction<Category[]>) => {
           state.isLoading = false;
           state.categories = action.payload;
+          state.error = null;
         }
       )
       .addCase(fetchCategories.rejected, (state, action) => {

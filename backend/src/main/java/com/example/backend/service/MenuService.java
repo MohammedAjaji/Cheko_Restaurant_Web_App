@@ -5,6 +5,8 @@ import com.example.backend.model.Menu;
 import com.example.backend.model.Restaurant;
 import com.example.backend.repository.MenuRepository;
 import com.example.backend.repository.RestaurantRepository;
+
+import jakarta.persistence.criteria.CriteriaBuilder.In;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +34,16 @@ public class MenuService {
     }
 
     public List<Menu> searchMenus(String searchWord){
-        List<Menu> menus = menuRepository.findAllByCategoryContainsIgnoreCaseOrDescriptionContainsIgnoreCase(searchWord,searchWord);
+        List<Menu> menus = menuRepository.findAllByNameContainsIgnoreCaseOrDescriptionContainsIgnoreCase(searchWord,searchWord);
+        if (menus.isEmpty()){
+            throw new ApiException("Menu not found");
+        }
+        return menus;
+    }
+
+    public List<Menu> searchMenusWithCategory(String searchWord, String category){
+
+        List<Menu> menus = menuRepository.findByNameOrDescriptionContainingIgnoreCaseAndCategory(searchWord,category);
         if (menus.isEmpty()){
             throw new ApiException("Menu not found");
         }
@@ -48,7 +59,7 @@ public class MenuService {
         return menuRepository.findAllByCategory(category);
     }
 
-    public List<Map<String, Long>>  countMenuItemsByCategory(){
+    public List<Map<String, Integer>>  countMenuItemsByCategory(){
         return menuRepository.countMenuItemsByCategory();
     }
 

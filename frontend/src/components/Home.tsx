@@ -9,11 +9,12 @@ import {
 import { RootState, AppDispatch } from "../redux/store";
 import { Menu } from "../types/types";
 import { Link } from "react-router-dom";
+import MenuDetails from "./MenuDetails";
 
 function Home() {
   const dispatch = useDispatch<AppDispatch>();
   const menus = useSelector((state: RootState) => state.menus);
-  const [name, setName] = useState("");
+  const [categoryName, setCategoryName] = useState("");
   const [counts, setCounts] = useState<{ [id: number]: number }>({});
 
   const addNumber = (itemId: number) => {
@@ -32,11 +33,23 @@ function Home() {
   const getMenuBycategory = (name: string) => {
     if (name === "All") {
       dispatch(fetchMenus(""));
-      setName(name);
+      setCategoryName(name);
     } else {
       dispatch(fetchMenus(`category/${name}`));
-      setName(name);
+      setCategoryName(name);
     }
+  };
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  // const [itemId, setItemId] = useState(1);
+
+  const openPopup = (itemId: number) => {
+    setIsPopupOpen(true);
+    // setItemId(itemId);
+    dispatch(fetchMenus(itemId.toString()));
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
   };
 
   if (menus.isLoading)
@@ -62,14 +75,14 @@ function Home() {
   return (
     <div>
       <div>
-        <div className=" mt-20 ml-28">
-          <div className="md:flex">
-            <ul className="flex space-x-4 text-lg font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0 ">
+        <div className=" md:mt-20 md:ml-28">
+          <div className="flex">
+            <ul className="mt-10 grid grid-cols-2 gap-3 xl:flex md:grid-cols-3 md:m-0 md:space-x-4 text-lg font-medium text-gray-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0 ">
               <button
                 className="inline-flex items-center px-4 py-3 rounded-lg shadow hover:text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
                 onClick={() => getMenuBycategory("All")}
               >
-                <span>All</span>
+                <p>All</p>
               </button>
               {menus.categories.map((category) => {
                 return (
@@ -92,55 +105,63 @@ function Home() {
       </div>
 
       <h1 className=" font-medium text-[50px] ml-14 mt-10 dark:text-white">
-        {name}
+        {categoryName}
       </h1>
       <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700" />
-
-      <div className="mt-12 container grid grid-cols-1 gap-6  mx-auto md:grid-cols-3 md:mt-12 ">
+      <div className="mt-12 container grid grid-cols-1 gap-6  mx-auto xl:grid-cols-3 md:mt-12 md:grid-cols-2 ">
         {menus.items.map((item: Menu) => {
           return (
-            <Link
-              to="/"
+            <button
+              onClick={() => openPopup(item.id)}
               className="flex flex-col items-center bg-white rounded-lg shadow  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:flex-row"
             >
-              <div className="flex flex-col justify-between p-4 leading-normal md:order-2">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {item.name}
-                </h5>
-                <p className="mb-3 text-xs font-normal text-gray-400 dark:text-gray-500">
-                  {item.calorie} cal
-                </p>
-
-                <div className="flex items-center mb-0 justify-end">
-                  <p className="font-medium text-2xl mr-20 text-pink-300 px-2">
-                    {item.price} SR
-                  </p>
-                  <button
-                    className="p-2.5 w-10 h-10 text-sm font-medium text-black bg-pink-200 rounded-xl mr-2 border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
-                    onClick={() => subNumber(item.id)}
-                  >
-                    -
-                  </button>
-                  <p className="font-medium text-pink-400 px-2">
-                    {counts[item.id] || 0}
-                  </p>
-                  <button
-                    className="p-2.5 w-10 h-10 text-sm font-medium text-black bg-pink-200 rounded-xl ml-2 border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
-                    onClick={() => addNumber(item.id)}
-                  >
-                    +
-                  </button>
-                </div>
-              </div>
               <img
                 className="object-cover w-full mx-4 rounded-xl h-96 md:h-36 md:m-3 md:w-36 md:rounded-xl md:order-1"
                 src={item.image}
                 alt={item.name}
               />
-            </Link>
+              <div className="flex flex-col justify-between p-4 leading-normal md:order-2">
+                <h5 className="self-start mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {item.name}
+                </h5>
+                <p className="self-start mb-3 text-xs font-normal text-gray-400 dark:text-gray-500">
+                  {item.calorie} cal
+                </p>
+
+                <div className="flex justify-between gap-16 sm:gap-4 items-center w-full">
+                  <p className="font-medium flex-grow text-2xl text-pink-300">
+                    {item.price} SR
+                  </p>
+                  <div className="flex justify-normal items-center">
+                    <button
+                      className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        subNumber(item.id);
+                      }}
+                    >
+                      -
+                    </button>
+                    <p className="font-semibold text-black px-4">
+                      {counts[item.id] || 0}
+                    </p>
+                    <button
+                      className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        addNumber(item.id);
+                      }}
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </button>
           );
         })}
       </div>
+      <MenuDetails isOpen={isPopupOpen} onClose={closePopup} />
     </div>
   );
 }

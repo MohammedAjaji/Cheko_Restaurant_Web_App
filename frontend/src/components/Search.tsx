@@ -1,9 +1,56 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { IoSearchSharp } from "react-icons/io5";
+
+import { AppDispatch, RootState } from "../redux/store";
+import { fetchCategories, fetchMenus } from "../redux/slices/MenuSlice";
+import { Category } from "../types/types";
+import { useLocation } from "react-router-dom";
+import { fetchRestaurants } from "../redux/slices/RestaurantSlice";
 
 export default function Search() {
-  //   const [searchTerm, setSearchTerm] = useState("");
-  // const [showFilters, setShowFilters] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
+  const location = useLocation();
+
+  const category = useSelector((state: RootState) => state.menus.categories);
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    setSelectedCategory(event.target.value);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log("selectedCategory :>> ", selectedCategory);
+    if (location.pathname === "/map") {
+      if (searchTerm) {
+        dispatch(fetchRestaurants(`search/${searchTerm}`));
+      } else {
+        dispatch(fetchRestaurants(""));
+      }
+    } else {
+      if (searchTerm) {
+        if (selectedCategory === "All") {
+          dispatch(fetchMenus(`search/${searchTerm}`));
+        } else {
+          dispatch(fetchMenus(`search/${searchTerm}/${selectedCategory}`));
+        }
+      } else {
+        dispatch(fetchMenus(""));
+      }
+    }
+  };
   // Hide filters dropdown if clicking outside of it
   //   useEffect(() => {
   //     function handleClickOutside(event: React.MouseEventHandler<HTMLButtonElement> ) {
@@ -16,33 +63,31 @@ export default function Search() {
   //   }, [filterRef]);
 
   return (
-    <form className="w-full">
+    <form className="w-full" onSubmit={handleSubmit}>
       <div className="flex justify-center">
         <div className="relative w-2/3 md:w-2/3">
-          <svg
-            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"
-            />
-          </svg>
+          <div className="absolute text-xl left-3 top-7 transform -translate-y-1/2 w-5 h-5 text-gray-500">
+            <IoSearchSharp />
+          </div>
           <input
             type="search"
             id="search-dropdown"
             className="block pl-10 py-4 w-full z-20 text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
             placeholder="Search..."
+            onChange={handleSearchChange}
           />
-          <select className="absolute top-0 right-40 py-4 text-base text-gray-900 bg-gray-50 mt-1 border-l-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500">
-            <option value="">Filter Option 1</option>
-            <option value="">Filter Option 2</option>
-            <option value="">Filter Option 3</option>
+          <select
+            className="absolute top-0 right-40 py-4 text-base text-gray-900 bg-gray-50 mt-1 border-l-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
+            onChange={handleCategoryChange}
+          >
+            <option value="All">All</option>;
+            {category.map((item, index) => {
+              return (
+                <option key={index} value={item.category}>
+                  {item.category}
+                </option>
+              );
+            })}
           </select>
           <button
             type="submit"
