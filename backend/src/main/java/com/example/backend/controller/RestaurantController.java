@@ -49,4 +49,9 @@ public class RestaurantController {
         List<Restaurant> restaurants = restaurantService.getAllRatingIsGreater(number);
         return ResponseEntity.status(200).body(restaurants);
     }
+
+    @GetMapping("/menu/category-count/{id}")
+    public ResponseEntity countMenuItemsByCategory(@PathVariable Integer id){
+        return ResponseEntity.status(200).body(restaurantService.countMenuItemsByCategory(id));
+    }
 }
