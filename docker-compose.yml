@@ -1,0 +1,48 @@
+version: "3.7"
+
+services:
+  backend:
+    container_name: backend-container
+    build: ./backend
+    ports:
+      - 8080:8080
+
+    # restart: always
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/chekoo
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+
+      # - POSTGRES_USER=postgres
+      # - POSTGRES_PASSWORD=1234
+      # - POSTGRES_DB=cheko
+      # - POSTGRES_HOST=db
+    # volumes:
+    #   - ./:var/www/html
+  db:
+    image: postgres:15.5
+    container_name: mydb
+    restart: always
+    ports:
+      - 5435:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=cheko
+    volumes:
+      - "cheko_db:/var/lib/postgres/data"
+
+  front-end:
+    container_name: front-container
+    build: ./frontend
+    expose:
+      - "3000"
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+
+volumes:
+  cheko_db:

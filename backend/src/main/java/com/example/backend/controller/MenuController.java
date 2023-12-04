@@ -42,7 +42,6 @@ public class MenuController {
     @GetMapping("/search/{searchWord}/{category}")
     public ResponseEntity searchMenusWithCategory(@PathVariable String searchWord, @PathVariable String category){
         List<Menu> menus = menuService.searchMenusWithCategory(searchWord,category);
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         return ResponseEntity.status(200).body(menus);
     }
 
