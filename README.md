@@ -20,4 +20,5 @@ cd Cheko_Restaurant_Web_App
 ```bash
 docker-compose up
 ```
-if `docker-compose up` did not your try `docker-compose up --build` 
+if `docker-compose up` did not work
+you can try `docker-compose up --build` 
