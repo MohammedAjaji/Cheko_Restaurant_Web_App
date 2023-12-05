@@ -64,8 +64,8 @@ export default function Search() {
 
   return (
     <form className="w-full" onSubmit={handleSubmit}>
-      <div className="flex justify-center">
-        <div className="relative w-2/3 md:w-2/3">
+      <div className="md:flex md:justify-center">
+        <div className="relative w-full md:w-2/3">
           <div className="absolute text-xl left-3 top-7 transform -translate-y-1/2 w-5 h-5 text-gray-500">
             <IoSearchSharp />
           </div>
@@ -77,7 +77,7 @@ export default function Search() {
             onChange={handleSearchChange}
           />
           <select
-            className="absolute top-0 right-40 py-4 text-base text-gray-900 bg-gray-50 mt-1 border-l-2 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
+            className="md:absolute w-28  top-0 right-40 py-4 text-base text-gray-900 bg-gray-50 mt-1 border md:border-y-0 md:border-r-0 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:border-blue-500"
             onChange={handleCategoryChange}
           >
             <option value="All">All</option>;
