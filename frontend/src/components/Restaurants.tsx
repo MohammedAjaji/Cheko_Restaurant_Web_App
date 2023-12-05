@@ -10,16 +10,33 @@ import { fetchRestaurants } from "../redux/slices/RestaurantSlice";
 
 export default function Restaurants() {
   const dispatch = useDispatch<AppDispatch>();
-  const res = useSelector((state: RootState) => state.restaurant);
+  const restaurants = useSelector((state: RootState) => state.restaurant);
 
   useEffect(() => {
     dispatch(fetchRestaurants(""));
   }, [dispatch]);
 
+  if (restaurants.isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="rounded-full h-20 w-20 bg-pink-300 animate-ping"></div>
+      </div>
+    );
+  if (restaurants.error)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div
+          className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+          role="alert"
+        >
+          <span className="font-medium"> ERROR: {restaurants.error}</span> .
+        </div>
+      </div>
+    );
   return (
     <div>
       <div className="mt-12 container grid grid-cols-1 gap-6  mx-auto md:grid-cols-3 md:mt-12 ">
-        {res.items.map((item: Restaurant) => {
+        {restaurants.items.map((item: Restaurant) => {
           return (
             <div className="flex items-center bg-white rounded-lg shadow p-4">
               <div className="flex-shrink-0">
@@ -46,7 +63,7 @@ export default function Restaurants() {
                 </div>
               </div>
               <Link
-                to={`/restaurants/${item.id}`}
+                to={`/restaurantstaurants/${item.id}`}
                 className="bg-pink-200 p-2 rounded-full ml-4 shadow-lg hover:bg-pink-300"
               >
                 {/* Replace with right arrow icon */}

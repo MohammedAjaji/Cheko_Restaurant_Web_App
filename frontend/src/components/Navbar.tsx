@@ -39,9 +39,9 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="bg-gray-900 mr-20 rounded-br-[50px] box-border h-28 text-3xl">
+      <nav className="bg-gray-900 mr-20 rounded-br-[50px] box-border sm:h-28 text-3xl">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-          <ul className="font-medium flex flex-row gap-3  ">
+          <ul className="sm:font-medium flex flex-col sm:flex-row gap-3  ">
             <li>
               {/* <p className="block py-2 px-3 text-white rounded hover:bg-pink-200 hover:text-black"> */}
               <Link to="/">
