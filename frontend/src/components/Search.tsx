@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoSearchSharp } from "react-icons/io5";
 
@@ -51,16 +51,6 @@ export default function Search() {
       }
     }
   };
-  // Hide filters dropdown if clicking outside of it
-  //   useEffect(() => {
-  //     function handleClickOutside(event: React.MouseEventHandler<HTMLButtonElement> ) {
-  //       if (filterRef.current && !filterRef.current.contains(event.target)) {
-  //         setShowFilters(false);
-  //       }
-  //     }
-  //     document.addEventListener('mousedown', handleClickOutside);
-  //     return () => document.removeEventListener('mousedown', handleClickOutside);
-  //   }, [filterRef]);
 
   return (
     <form className="w-full" onSubmit={handleSubmit}>

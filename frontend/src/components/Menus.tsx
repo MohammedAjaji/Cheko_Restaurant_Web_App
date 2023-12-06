@@ -21,7 +21,7 @@ function Menus() {
         return (
           <div>
             <img
-              src={item.image} // Replace with your image path
+              src={item.image}
               alt="Breakfast"
               className="w-full h-32 object-cover rounded-lg"
             />

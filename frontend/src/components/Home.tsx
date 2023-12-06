@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RestaurantActions } from "../redux/slices/RestaurantSlice";
-import {
-  MenuActions,
-  fetchCategories,
-  fetchMenus,
-} from "../redux/slices/MenuSlice";
+import { fetchCategories, fetchMenus } from "../redux/slices/MenuSlice";
 import { RootState, AppDispatch } from "../redux/store";
 import { Menu } from "../types/types";
-import { Link } from "react-router-dom";
 import MenuDetails from "./MenuDetails";
 
 function Home() {
