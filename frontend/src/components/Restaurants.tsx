@@ -38,7 +38,7 @@ export default function Restaurants() {
       <div className="mt-12 container grid grid-cols-1 gap-6  mx-auto md:grid-cols-3 md:mt-12 ">
         {restaurants.items.map((item: Restaurant) => {
           return (
-            <div className="flex items-center bg-white rounded-lg shadow p-4">
+            <div className="flex items-center bg-white rounded-lg shadow p-4 dark:border-gray-700 dark:bg-gray-800">
               <div className="flex-shrink-0">
                 <img
                   src="https://cdn.langeek.co/photo/26023/original/any" // Replace with your image path
@@ -47,9 +47,11 @@ export default function Restaurants() {
                 />
               </div>
               <div className="ml-4 flex-grow">
-                <h5 className="text-xl font-bold">{item.name}</h5>
+                <h5 className="text-xl font-bold dark:text-white ">
+                  {item.name}
+                </h5>
                 <div className="flex gap-2">
-                  <p className="text-gray-500">{item.rating}</p>
+                  <p className="text-gray-500 dark:text-white">{item.rating}</p>
                   <p className=" text-yellow-400 border-yellow-500 mt-1">
                     <FaStar />{" "}
                   </p>
@@ -63,7 +65,7 @@ export default function Restaurants() {
                 </div>
               </div>
               <Link
-                to={`/restaurantstaurants/${item.id}`}
+                to={`/restaurants/${item.id}`}
                 className="bg-pink-200 p-2 rounded-full ml-4 shadow-lg hover:bg-pink-300"
               >
                 {/* Replace with right arrow icon */}

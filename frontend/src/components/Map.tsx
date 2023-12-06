@@ -51,7 +51,7 @@ const Map: React.FC<MapComponentProps> = ({ accessToken, center, zoom }) => {
 
     // Add markers to the map
     restaurants.items.forEach((item: Restaurant) => {
-      const popup = new mapboxgl.Popup({ offset: 25 })
+      const popup = new mapboxgl.Popup({ offset: 25, maxWidth: "500px" })
         .setHTML(popupHTML(item.name, item.rating, item.id, item.url))
         .addTo(map);
       popup.on("open", () => {

@@ -16,7 +16,7 @@ function MapPopup(props: Props) {
   //     window.location.href = `/restaurants/${props.id}`;
   //   };
   return (
-    <div className="flex items-center bg-white rounded-lg shadow p-4">
+    <div className="flex items-center bg-white w-max rounded-lg shadow p-4 dark:bg-gray-800">
       <div className="flex-shrink-0">
         <img
           src="https://cdn.langeek.co/photo/26023/original/any" // Replace with your image path
@@ -25,16 +25,16 @@ function MapPopup(props: Props) {
         />
       </div>
       <div className="ml-4 flex-grow">
-        <h5 className="text-xl font-bold">{props.name}</h5>
+        <h5 className="text-lg font-bold dark:text-white">{props.name}</h5>
         <div className="flex gap-2">
-          <p className="text-gray-500">{props.rating}</p>
+          <p className="text-gray-500 dark:text-white">{props.rating}</p>
           <p className=" text-yellow-400 border-yellow-500 mt-1">
             <FaStar />{" "}
           </p>
           <a
             href={props.url}
             target="_blank"
-            className=" text-blue-400 border-blue-500 mt-1"
+            className="text-blue-400 border-blue-500 mt-1"
           >
             <FaCar />{" "}
           </a>
