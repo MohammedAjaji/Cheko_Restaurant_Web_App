@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
 import { FaCar, FaStar } from "react-icons/fa";
 
 type Props = {
@@ -10,18 +9,13 @@ type Props = {
   url: string;
 };
 function MapPopup(props: Props) {
-  //   const navigate = useNavigate();
-
-  //   const navigateTo = () => {
-  //     window.location.href = `/restaurants/${props.id}`;
-  //   };
   return (
     <div className="flex items-center bg-white w-max rounded-lg shadow p-4 dark:bg-gray-800">
       <div className="flex-shrink-0">
         <img
-          src="https://cdn.langeek.co/photo/26023/original/any" // Replace with your image path
+          src="https://cdn.langeek.co/photo/26023/original/any"
           alt="Restaurant Logo"
-          className="h-24 w-24 rounded-full" // Adjust size as needed
+          className="h-24 w-24 rounded-full"
         />
       </div>
       <div className="ml-4 flex-grow">
@@ -44,7 +38,6 @@ function MapPopup(props: Props) {
         id={`navigate-button-${props.id}`}
         className="bg-pink-200 p-2 rounded-full ml-4 shadow-lg hover:bg-pink-300"
       >
-        {/* Replace with right arrow icon */}
         <span className="text-xl">→</span>
       </button>
     </div>

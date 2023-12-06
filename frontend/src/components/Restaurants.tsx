@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import { FaCar, FaStar } from "react-icons/fa";
@@ -41,9 +40,9 @@ export default function Restaurants() {
             <div className="flex items-center bg-white rounded-lg shadow p-4 dark:border-gray-700 dark:bg-gray-800">
               <div className="flex-shrink-0">
                 <img
-                  src="https://cdn.langeek.co/photo/26023/original/any" // Replace with your image path
+                  src="https://cdn.langeek.co/photo/26023/original/any"
                   alt="Restaurant Logo"
-                  className="h-24 w-24 rounded-full" // Adjust size as needed
+                  className="h-24 w-24 rounded-full"
                 />
               </div>
               <div className="ml-4 flex-grow">
@@ -68,7 +67,6 @@ export default function Restaurants() {
                 to={`/restaurants/${item.id}`}
                 className="bg-pink-200 p-2 rounded-full ml-4 shadow-lg hover:bg-pink-300"
               >
-                {/* Replace with right arrow icon */}
                 <span className="text-xl">→</span>
               </Link>
             </div>

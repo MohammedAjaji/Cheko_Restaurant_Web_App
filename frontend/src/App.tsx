@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 import Map from "./components/Map";
-import { LngLatLike } from "mapbox-gl";
 import "./App.css";
-import HomePage from "./components/Home";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Restaurants from "./components/Restaurants";

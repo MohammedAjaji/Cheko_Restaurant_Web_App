@@ -6,9 +6,8 @@ import {
   fetchRestaurants,
 } from "../redux/slices/RestaurantSlice";
 import { useParams } from "react-router-dom";
-import { FaCar, FaStar } from "react-icons/fa";
 
-import { Menu, Restaurant } from "../types/types";
+import { Menu } from "../types/types";
 import MenuDetails from "./MenuDetails";
 import { fetchMenus } from "../redux/slices/MenuSlice";
 
@@ -47,11 +46,9 @@ function RestaurantsDetails() {
     }
   };
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  // const [itemId, setItemId] = useState(1);
 
   const openPopup = (itemId: number) => {
     setIsPopupOpen(true);
-    // setItemId(itemId);
     dispatch(fetchMenus(itemId.toString()));
   };
 
