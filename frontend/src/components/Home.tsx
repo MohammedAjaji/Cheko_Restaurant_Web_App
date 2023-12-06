@@ -134,7 +134,7 @@ function Home() {
                   </p>
                   <div className="flex justify-normal items-center">
                     <button
-                      className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+                      className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-transparent dark:hover:bg-gray-600 dark:text-pink-400 dark:focus:ring-pink-800"
                       onClick={(event) => {
                         event.stopPropagation();
                         subNumber(item.id);
@@ -142,11 +142,11 @@ function Home() {
                     >
                       -
                     </button>
-                    <p className="font-semibold text-black px-4">
+                    <p className="font-semibold text-black px-4 dark:text-gray-400">
                       {counts[item.id] || 0}
                     </p>
                     <button
-                      className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+                      className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-transparent dark:hover:bg-gray-600 dark:text-pink-400 dark:focus:ring-pink-800"
                       onClick={(event) => {
                         event.stopPropagation();
                         addNumber(item.id);

@@ -40,9 +40,9 @@ function MenuDetails(popup: PopupProps) {
   }
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white rounded-lg p-4 max-w-xl w-full">
+      <div className="bg-white rounded-lg p-4 max-w-xl w-full dark:bg-gray-800">
         <div className="flex justify-between items-start">
-          <h2 className="text-2xl font-bold">{menu.name}</h2>
+          <h2 className="text-2xl font-bold dark:text-white">{menu.name}</h2>
           <button
             className="text-xl hover:bg-gray-200 rounded-full w-8  h-8 "
             onClick={popup.onClose}
@@ -51,28 +51,34 @@ function MenuDetails(popup: PopupProps) {
           </button>{" "}
           {/* Replace with close icon */}
         </div>
-        <span className=" bg-green-300 text-green-800 p-1 rounded-full text-xs font-semibold mr-2">
+        <span className=" bg-green-300 p-1 text-green-800 border rounded-full text-xs font-semibold mr-2 dark:bg-transparent dark:border-green-400 dark:text-green-200">
           Best Sale
         </span>
-        <div className="text-lg">{menu.calorie} Cal</div>
-        <p className="text-gray-500 my-2">{menu.description}</p>
+        <div className="text-lg dark:text-white">{menu.calorie} Cal</div>
+        <p className="text-gray-500 my-2  dark:text-gray-100">
+          {menu.description}
+        </p>
         <img
           src={menu.image}
           alt={menu.name}
           className="w-full h-96 object-cover rounded-lg"
         />
         <div className="flex justify-between items-center mt-4">
-          <div className="text-2xl font-semibold">{menu.price} SR</div>
+          <div className="text-2xl font-semibold dark:text-white">
+            {menu.price} SR
+          </div>
           <div className="flex items-center">
             <button
-              className="justify-cente w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl ml-2 border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+              className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-transparent dark:hover:bg-gray-600 dark:text-pink-400 dark:focus:ring-pink-800"
               onClick={subNumber}
             >
               −
             </button>
-            <div className="mx-4 text-lg font-semibold">{count}</div>
+            <div className="mx-4 text-lg font-semibold dark:text-gray-400 ">
+              {count}
+            </div>
             <button
-              className="justify-cente w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl ml-2 border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800"
+              className="w-10 h-10 text-xl font-medium text-black bg-pink-200 rounded-xl border border-pink-200 hover:bg-pink-100 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-transparent dark:hover:bg-gray-600 dark:text-pink-400 dark:focus:ring-pink-800"
               onClick={addNumber}
             >
               +
